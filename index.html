@@ -24,9 +24,28 @@
 		ctx.fillStyle = 'rgba(100,60,89,0.5)';
 		ctx.fillRect(0,0,400,300);
 		ctx.strokeStyle = 'rgba(100,50,79,0.8)';
+		
 		ctx.beginPath();
-		ctx.arc(200,150,100,0,0.5*Math.PI,true);
+		ctx.strokeStyle = 'blue';
+		ctx.arc(200,150,50,0,2*Math.PI,false);
 		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.strokeStyle = 'green';
+		ctx.arc(200,160,20,0,Math.PI,false);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.strokeStyle = 'red';
+		ctx.arc(180,140,5,0,2*Math.PI,false);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.strokeStyle = 'red';
+		ctx.arc(220,140,5,0,2*Math.PI,false);
+		ctx.stroke();
+
+
 	} else {
 		console.log(222);
 	}
