@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Canvas</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<style>
+	
+</style>
+<body>
+	<input type="button" name="" id="btn" value="添加" />
+	<ul id="ul">
+		<li>11</li>
+		<li>22</li>
+		<li>33</li>
+		<li>44</li>
+	</ul>
+
+	<div id="box">
+		<input type="button" id="add" value="添加" />
+        <input type="button" id="remove" value="删除" />
+        <input type="button" id="move" value="移动" />
+        <input type="button" id="select" value="选择" />
+	</div>
+</body>
+<script>
+	/*事件代理引入*/
+
+	var ul = document.getElementById('ul');
+	var lis = ul.getElementsByTagName('li');
+	var Button = document.getElementById('btn');
+	var num = 4;
+
+	// for (var i = 0; i < lis.length; i++) {  //for循环
+	// 	lis[i].index = i;
+	// 	lis[i].onclick = function() {
+	// 		console.log(lis[this.index].innerHTML);
+	// 	}
+	// }
+	Button.onclick = function() {
+	 	num++;
+        var li = document.createElement('li');
+        li.innerHTML = 11*num;
+        ul.appendChild(li);
+	}
+
+	for(var i=0; i<lis.length;i++){
+        lis[i].onmouseover = function(){
+            this.style.background = 'red';
+        };
+        lis[i].onmouseout = function(){
+            this.style.background = '#fff';
+        }
+    }
+	ul.onclick = function(){
+		var ev = ev || window.event;
+		var target = ev.target || ev.srcElement;
+		if (target.nodeName.toLowerCase() == 'li') {
+			console.log(target.innerHTML);
+		}
+	}
+
+
+	/*效果不同的事件代理*/
+	var Add = document.getElementById("add");
+	var Remove = document.getElementById("remove");
+	var Move = document.getElementById("move");
+	var Select = document.getElementById("select");
+
+	// Add.onclick = function(){  //普通做法
+	// 	alert('添加');
+	// };
+	// Remove.onclick = function(){
+	// 	alert('删除');
+	// };
+	// Move.onclick = function(){
+	// 	alert('移动');
+	// };
+	// Select.onclick = function(){
+	// 	alert('选择');
+	// }
+
+	/*事件代理做法*/
+
+	var box  = document.getElementById('box');
+
+	box.onclick = function() {
+		var ev = ev || window.event;
+		var target = ev.target || ev.srcElement;
+		if (target.nodeName.toLowerCase() == 'input') {
+			switch(target.id){
+                case 'add' :
+                    alert('添加1');
+                    break;
+                case 'remove' :
+                    alert('删除2');
+                    break;
+                case 'move' :
+                    alert('移动3');
+                    break;
+                case 'select' :
+                    alert('选择4');
+                    break;
+            }
+		}
+	}
+
+</script>
+</html>
